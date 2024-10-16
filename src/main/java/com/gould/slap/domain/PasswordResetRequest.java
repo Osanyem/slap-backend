@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 //This entity is for the password reset requests that each user requests for
 
 @Data
@@ -27,7 +29,7 @@ public class PasswordResetRequest {
     //To show if the password request has been processed
     @Column(nullable = false)
     private boolean processed = false;
-    
+
     //Might not be necessary but its there if we need it
     @Column(nullable = false)
     private LocalDateTime requestedAt;

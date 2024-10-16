@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//This entity is for every course that is created and has relationships with students and projects
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -41,11 +41,9 @@ public class Course {
     //Used for the View Courses Use Case to see how many students are in each course
     @ManyToMany
     @JoinTable(
-        name = "course_student",
-        joinColumns = @JoinColumn(name = "course_id"),
-        inverseJoinColumns = @JoinColumn(name = "student_id")
+            name = "course_student",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
     )
     private List<User> students;
-
 }
-

@@ -28,6 +28,6 @@ public class InstructionDocument  {
     //Have to ensure the user that is added is a user with the role instructor
     @ManyToOne
     @JoinColumn(name = "project_id")
-    private Project project;  
+    private Project project;
 
 }

@@ -22,11 +22,11 @@ public class Submission {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    private User student; 
+    private User student;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course;  
+    private Course course;
 
     private String description;
 
