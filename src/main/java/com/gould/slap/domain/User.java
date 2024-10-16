@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//This entity is for every user on SLAP
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long user_Id;
 
     @Column(nullable = false, unique = true)
@@ -41,13 +41,6 @@ public class User {
     private List<Message> receivedMessages;
 
     @OneToMany(mappedBy = "student")
-    private List<Assignment> assignments;
-
+    private List<Submission> assignments;
 }
 
-//This is for the role of each user
-public enum Role {
-    STUDENT,
-    INSTRUCTOR,
-    ADMIN
-}

@@ -22,12 +22,12 @@ public class Slap {
 
     @ManyToOne
     @JoinColumn(name = "creator_id")
-    private User creator_id;  
+    private User creator_id;
 
     //Admins can send to all users so is course_id is not needed for them but will be needed for instructors
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course; 
+    private Course course;
 
     private String content;
 

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 //This entity is for the projects created within each course
 
 @Data
@@ -39,4 +41,3 @@ public class Project {
     private List<InstructionDocument> instructionDocs;
 
 }
-

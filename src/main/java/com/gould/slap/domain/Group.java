@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 //This entity is the for groups within courses (Not sure if this is meant for only courses or projects as well)
 
 @Data
@@ -14,23 +16,23 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "Groups")
-public class Group` {
+public class Group {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long group_Id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long group_Id;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
+@ManyToOne
+@JoinColumn(name = "course_id")
+private Course course;
 
-    @ManyToMany
-    @JoinTable(
+@ManyToMany
+@JoinTable(
         name = "group_student",
         joinColumns = @JoinColumn(name = "group_id"),
         inverseJoinColumns = @JoinColumn(name = "student_id")
-    )
-    private List<User> students;
+)
+private List<User> students;
 
 
 }
