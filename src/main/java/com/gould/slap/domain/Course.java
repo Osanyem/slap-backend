@@ -23,9 +23,15 @@ public class Course {
     @Column(nullable = false, unique = true)
     private String courseName;
 
-    private String description;
+    //Add Course Code (6CharactersMax)
 
-    //We can also add a CourseCode field if wanted
+    //Enrollment Deadline (YYYY-MM-DD)
+
+    //Course Start Date
+
+    //Course End Date
+
+    private String description;
 
     //Have to ensure the user that is added is a user with the role instructor
     @ManyToOne

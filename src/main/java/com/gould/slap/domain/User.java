@@ -20,6 +20,18 @@ public class User {
     @GeneratedValue
     private Long user_Id;
 
+    @Column(nullable = false)
+    private String firstname;
+    
+    @Column(nullable = true)
+    private String middlename;
+
+    @Column(nullable = false)
+    private String lastname;
+
+    @Column(nullable = false)
+    private String dateofbirth;
+
     @Column(nullable = false, unique = true)
     private String username;
 
