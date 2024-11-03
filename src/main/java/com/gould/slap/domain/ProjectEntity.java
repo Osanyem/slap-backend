@@ -15,8 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Projects")
-public class Project {
+@Table(name = "projects")
+public class ProjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +30,14 @@ public class Project {
     //Establish Relationships
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course;
+    private CourseEntity courseEntity;
 
     @ManyToOne
     @JoinColumn(name = "created_by")
-    private User instructor;
+    private UserEntity instructor;
 
     //View Instruction Documents Use Case
-    @OneToMany(mappedBy = "project")
-    private List<InstructionDocument> instructionDocs;
+    @OneToMany(mappedBy = "projectEntity")
+    private List<InstructionDocumentEntity> instructionDocs;
 
 }

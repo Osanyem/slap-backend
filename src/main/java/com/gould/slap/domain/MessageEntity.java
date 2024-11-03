@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Messages")
-public class Message {
+@Table(name = "messages")
+public class MessageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,10 @@ public class Message {
     //Establish the relationships
     @ManyToOne
     @JoinColumn(name = "sender_id")
-    private User sender_id;
+    private UserEntity sender_id;
 
     @ManyToOne
     @JoinColumn(name = "receiver_id")
-    private User receiver_id;
+    private UserEntity receiver_id;
 
 }

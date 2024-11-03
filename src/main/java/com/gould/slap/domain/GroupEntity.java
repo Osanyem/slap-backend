@@ -16,7 +16,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "Groups")
-public class Group {
+public class GroupEntity {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ private Long group_Id;
 
 @ManyToOne
 @JoinColumn(name = "course_id")
-private Course course;
+private CourseEntity courseEntity;
 
 @ManyToMany
 @JoinTable(
@@ -32,7 +32,7 @@ private Course course;
         joinColumns = @JoinColumn(name = "group_id"),
         inverseJoinColumns = @JoinColumn(name = "student_id")
 )
-private List<User> students;
+private List<UserEntity> students;
 
 
 }

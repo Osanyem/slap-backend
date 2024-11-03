@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Evaluations")
-public class Evaluation {
+@Table(name = "evaluations")
+public class EvaluationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class Evaluation {
 
     @OneToOne
     @JoinColumn(name = "assignment_id")
-    private Submission submission;
+    private SubmissionEntity submissionEntity;
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")
-    private User instructor;
+    private UserEntity instructor;
 
     @Column(nullable = false)
     private String feedback;

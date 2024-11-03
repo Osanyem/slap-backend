@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Courses")
-public class Course {
+@Table(name = "courses")
+public class CourseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,13 +36,13 @@ public class Course {
     //Have to ensure the user that is added is a user with the role instructor
     @ManyToOne
     @JoinColumn(name = "instructor_id")
-    private User instructor;
+    private UserEntity instructor;
 
     //Establish Relationships
 
     //Required for the View Project Use Case
-    @OneToMany(mappedBy = "course")
-    private List<Project> projects;
+    @OneToMany(mappedBy = "courseEntity")
+    private List<ProjectEntity> projectEntities;
 
     //Used for the View Courses Use Case to see how many students are in each course
     @ManyToMany
@@ -51,5 +51,5 @@ public class Course {
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
-    private List<User> students;
+    private List<UserEntity> students;
 }

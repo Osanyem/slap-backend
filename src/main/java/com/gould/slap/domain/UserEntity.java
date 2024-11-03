@@ -13,16 +13,16 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Users")
-public class User {
+@Table(name = "users")
+public class UserEntity {
 
     @Id
     @GeneratedValue
-    private Long user_Id;
+    private Long user_id;
 
     @Column(nullable = false)
     private String firstname;
-    
+
     @Column(nullable = true)
     private String middlename;
 
@@ -53,6 +53,6 @@ public class User {
     private List<MessageEntity> receivedMessageEntities;
 
     @OneToMany(mappedBy = "student")
-    private List<Submission> assignments;
+    private List<SubmissionEntity> assignments;
 }
 

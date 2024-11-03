@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "PasswordResetRequests")
-public class PasswordResetRequest {
+@Table(name = "password_reset_requests")
+public class PasswordResetRequestEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class PasswordResetRequest {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserEntity userEntity;
 
     //To show if the password request has been processed
     @Column(nullable = false)

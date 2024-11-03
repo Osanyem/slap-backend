@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "SLAPS")
-public class Slap {
+@Table(name = "slaps")
+public class SlapEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,12 @@ public class Slap {
 
     @ManyToOne
     @JoinColumn(name = "creator_id")
-    private User creator_id;
+    private UserEntity creator_id;
 
     //Admins can send to all users so is course_id is not needed for them but will be needed for instructors
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course;
+    private CourseEntity courseEntity;
 
     private String content;
 
