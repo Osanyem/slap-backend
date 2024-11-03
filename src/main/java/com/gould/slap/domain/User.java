@@ -46,10 +46,10 @@ public class User {
     private String email;
 
     //Establish all the Relationships with User
-    @OneToMany(mappedBy = "sender")
+    @OneToMany(mappedBy = "sender_id")
     private List<Message> sentMessages;
 
-    @OneToMany(mappedBy = "receiver")
+    @OneToMany(mappedBy = "receiver_id")
     private List<Message> receivedMessages;
 
     @OneToMany(mappedBy = "student")
