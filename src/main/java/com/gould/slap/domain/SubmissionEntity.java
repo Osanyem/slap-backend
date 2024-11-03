@@ -26,7 +26,7 @@ public class Submission {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course;
+    private CourseEntity courseEntity;
 
     private String description;
 

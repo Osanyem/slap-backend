@@ -47,10 +47,10 @@ public class User {
 
     //Establish all the Relationships with User
     @OneToMany(mappedBy = "sender_id")
-    private List<Message> sentMessages;
+    private List<MessageEntity> sentMessageEntities;
 
     @OneToMany(mappedBy = "receiver_id")
-    private List<Message> receivedMessages;
+    private List<MessageEntity> receivedMessageEntities;
 
     @OneToMany(mappedBy = "student")
     private List<Submission> assignments;
