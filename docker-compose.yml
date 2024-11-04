@@ -1,13 +1,13 @@
 version: '3.8'
 
 services:
-  spring-demo:
+  spring-db:
     image: postgres
-    container_name: gould
+    container_name: gouldu
     environment:
-      POSTGRES_USER: gouldu
-      POSTGRES_PASSWORD: gouldu
-      POSTGRES_DB: gould_slap
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: spring_postgres
+      POSTGRES_DB: slap
     ports:
       - "5432:5432"
     restart: always
