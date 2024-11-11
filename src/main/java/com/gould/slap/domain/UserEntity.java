@@ -1,11 +1,13 @@
 package com.gould.slap.domain;
 
+import com.gould.slap.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -17,20 +19,20 @@ import java.util.List;
 public class UserEntity {
 
     @Id
-    @GeneratedValue
-    private Long user_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
 
     @Column(nullable = false)
-    private String firstname;
+    private String firstName;
 
     @Column(nullable = true)
-    private String middlename;
+    private String middleName;
 
     @Column(nullable = false)
-    private String lastname;
+    private String lastName;
 
     @Column(nullable = false)
-    private String dateofbirth;
+    private LocalDate dateOfBirth;
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -45,14 +47,12 @@ public class UserEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    //Establish all the Relationships with User
-    @OneToMany(mappedBy = "sender_id")
-    private List<MessageEntity> sentMessageEntities;
+    @OneToMany(mappedBy = "sender")
+    private List<MessageEntity> sentMessages;
 
-    @OneToMany(mappedBy = "receiver_id")
-    private List<MessageEntity> receivedMessageEntities;
+    @OneToMany(mappedBy = "receiver")
+    private List<MessageEntity> receivedMessages;
 
     @OneToMany(mappedBy = "student")
     private List<SubmissionEntity> assignments;
 }
-
