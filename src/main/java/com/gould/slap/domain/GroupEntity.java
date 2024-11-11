@@ -8,31 +8,27 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-//This entity is the for groups within courses (Not sure if this is meant for only courses or projects as well)
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Groups")
+@Table(name = "groups") // Changed to lowercase to follow naming conventions
 public class GroupEntity {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long group_Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long groupId; // Changed to camelCase
 
-@ManyToOne
-@JoinColumn(name = "course_id")
-private CourseEntity courseEntity;
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseEntity courseEntity;
 
-@ManyToMany
-@JoinTable(
-        name = "group_student",
-        joinColumns = @JoinColumn(name = "group_id"),
-        inverseJoinColumns = @JoinColumn(name = "student_id")
-)
-private List<UserEntity> students;
-
-
+    @ManyToMany
+    @JoinTable(
+            name = "group_student",
+            joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private List<UserEntity> students;
 }
