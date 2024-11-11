@@ -13,12 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "groups") // Changed to lowercase to follow naming conventions
+@Table(name = "groups")
 public class GroupEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long groupId; // Changed to camelCase
+    private Long groupId;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
