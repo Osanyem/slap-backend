@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-//This entity is for the password reset requests that each user requests for
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,21 +18,18 @@ public class PasswordResetRequestEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long request_Id;
+    private Long requestId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity userEntity;
+    private UserEntity user;
 
-    //To show if the password request has been processed
     @Column(nullable = false)
     private boolean processed = false;
 
-    //Might not be necessary but its there if we need it
     @Column(nullable = false)
     private LocalDateTime requestedAt;
 
     @Column
     private LocalDateTime processedAt;
-
 }
