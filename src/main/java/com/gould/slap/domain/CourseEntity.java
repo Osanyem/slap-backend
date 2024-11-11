@@ -43,7 +43,7 @@ public class CourseEntity {
     @JoinColumn(name = "instructor_id", nullable = false)
     private UserEntity instructor;
 
-    @OneToMany(mappedBy = "courseEntity")
+    @OneToMany(mappedBy = "course")
     private List<ProjectEntity> projectEntities;
 
     @ManyToMany
