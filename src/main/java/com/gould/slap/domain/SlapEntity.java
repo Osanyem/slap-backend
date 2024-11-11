@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//This entity is for SLAPS that are created by admins or instructors to send out to the users
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,18 +16,15 @@ public class SlapEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long slap_Id;
+    private Long slapId;
 
     @ManyToOne
     @JoinColumn(name = "creator_id")
-    private UserEntity creator_id;
+    private UserEntity creator;
 
-    //Admins can send to all users so is course_id is not needed for them but will be needed for instructors
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private CourseEntity courseEntity;
+    private CourseEntity course;
 
     private String content;
-
-
 }
