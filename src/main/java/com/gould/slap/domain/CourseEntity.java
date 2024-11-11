@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -18,33 +19,33 @@ public class CourseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long course_Id;
+    private Long courseId;
 
     @Column(nullable = false, unique = true)
     private String courseName;
 
-    //Add Course Code (6CharactersMax)
+    @Column(nullable = false, length = 6, unique = true)
+    private String courseCode;
 
-    //Enrollment Deadline (YYYY-MM-DD)
+    @Column(nullable = false)
+    private LocalDate enrollmentDeadline;
 
-    //Course Start Date
+    @Column(nullable = false)
+    private LocalDate startDate;
 
-    //Course End Date
+    @Column(nullable = false)
+    private LocalDate endDate;
 
+    @Column(nullable = true)
     private String description;
 
-    //Have to ensure the user that is added is a user with the role instructor
     @ManyToOne
-    @JoinColumn(name = "instructor_id")
+    @JoinColumn(name = "instructor_id", nullable = false)
     private UserEntity instructor;
 
-    //Establish Relationships
-
-    //Required for the View Project Use Case
     @OneToMany(mappedBy = "courseEntity")
     private List<ProjectEntity> projectEntities;
 
-    //Used for the View Courses Use Case to see how many students are in each course
     @ManyToMany
     @JoinTable(
             name = "course_student",
