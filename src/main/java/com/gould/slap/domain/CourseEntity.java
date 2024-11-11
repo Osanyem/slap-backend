@@ -1,5 +1,6 @@
 package com.gould.slap.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,18 +40,22 @@ public class CourseEntity {
     @Column(nullable = true)
     private String description;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id", nullable = false)
+    @JsonIgnoreProperties({"sentMessages", "receivedMessages", "assignments", "courses"})
     private UserEntity instructor;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnoreProperties({"course"})
     private List<ProjectEntity> projectEntities;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "course_student",
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
+    @JsonIgnoreProperties({"sentMessages", "receivedMessages", "assignments", "enrolledCourses"})
     private List<UserEntity> students;
 }
