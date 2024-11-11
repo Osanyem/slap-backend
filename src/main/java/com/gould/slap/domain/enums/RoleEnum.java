@@ -1,4 +1,4 @@
-package com.gould.slap.domain;
+package com.gould.slap.domain.enums;
 
 public enum Role {
     STUDENT,
