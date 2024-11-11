@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//This entity is the for evaluations that instructors send
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +16,7 @@ public class EvaluationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long evaluation_Id;
+    private Long evaluationId;
 
     @OneToOne
     @JoinColumn(name = "assignment_id")
@@ -28,11 +26,9 @@ public class EvaluationEntity {
     @JoinColumn(name = "instructor_id")
     private UserEntity instructor;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String feedback;
 
     @Column(nullable = false)
     private int grade;
-
-
 }
