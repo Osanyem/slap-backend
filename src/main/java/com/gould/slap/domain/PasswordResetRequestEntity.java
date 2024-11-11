@@ -21,7 +21,7 @@ public class PasswordResetRequestEntity {
     private Long requestId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
     @Column(nullable = false)
@@ -32,4 +32,11 @@ public class PasswordResetRequestEntity {
 
     @Column
     private LocalDateTime processedAt;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.requestedAt == null) {
+            this.requestedAt = LocalDateTime.now();
+        }
+    }
 }
