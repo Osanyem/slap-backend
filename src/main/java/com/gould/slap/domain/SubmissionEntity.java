@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//This entity is for all the submissions that the User submits
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +16,7 @@ public class SubmissionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long submission_Id;
+    private Long submissionId;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -26,8 +24,7 @@ public class SubmissionEntity {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private CourseEntity courseEntity;
+    private CourseEntity course;
 
     private String description;
-
 }
