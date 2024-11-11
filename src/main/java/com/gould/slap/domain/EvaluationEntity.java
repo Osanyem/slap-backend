@@ -1,5 +1,6 @@
 package com.gould.slap.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +19,14 @@ public class EvaluationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long evaluationId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "assignment_id")
+    @JsonIgnoreProperties({"evaluations"})
     private SubmissionEntity submissionEntity;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_id")
+    @JsonIgnoreProperties({"evaluations", "sentMessages", "receivedMessages"})
     private UserEntity instructor;
 
     @Column(nullable = true)
