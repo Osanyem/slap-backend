@@ -2,7 +2,6 @@ package com.gould.slap.services;
 
 import com.gould.slap.domain.UserEntity;
 import com.gould.slap.repositories.UserRepository;
-import org.h2.engine.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,13 +42,13 @@ public class UserService {
     }
 
     public UserEntity partialUpdate(Long id, UserEntity userEntity) {
-        userEntity.setUser_id(id);
+        userEntity.setUserId(id);
 
         return userRepository.findById(id).map(existingUser -> {
-            Optional.ofNullable(userEntity.getFirstname()).ifPresent(existingUser::setFirstname);
-            Optional.ofNullable(userEntity.getMiddlename()).ifPresent(existingUser::setMiddlename);
-            Optional.ofNullable(userEntity.getLastname()).ifPresent(existingUser::setLastname);
-            Optional.ofNullable(userEntity.getDateofbirth()).ifPresent(existingUser::setDateofbirth);
+            Optional.ofNullable(userEntity.getFirstName()).ifPresent(existingUser::setFirstName);
+            Optional.ofNullable(userEntity.getMiddleName()).ifPresent(existingUser::setMiddleName);
+            Optional.ofNullable(userEntity.getLastName()).ifPresent(existingUser::setLastName);
+            Optional.ofNullable(userEntity.getDateOfBirth()).ifPresent(existingUser::setDateOfBirth);
             Optional.ofNullable(userEntity.getUsername()).ifPresent(existingUser::setUsername);
             Optional.ofNullable(userEntity.getPassword()).ifPresent(existingUser::setPassword);
             Optional.ofNullable(userEntity.getRole()).ifPresent(existingUser::setRole);

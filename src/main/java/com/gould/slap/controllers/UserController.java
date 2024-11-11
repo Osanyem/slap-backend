@@ -48,7 +48,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        userEntity.setUser_id(id);
+        userEntity.setUserId(id);
         UserEntity savedUserEntity = userService.save(userEntity);
         return new ResponseEntity<>(
                 savedUserEntity,
