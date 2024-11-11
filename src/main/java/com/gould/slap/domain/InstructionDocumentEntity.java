@@ -16,16 +16,15 @@ public class InstructionDocumentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long instructionDocumentId; // Renamed to camelCase
+    private Long instructionDocumentId;
 
     @Column(nullable = false, unique = true)
-    private String documentName; // Fixed typo (doucment -> document)
+    private String documentName;
 
     @Column(nullable = true)
-    private String description; // Nullable description
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectEntity projectEntity;
-
 }
