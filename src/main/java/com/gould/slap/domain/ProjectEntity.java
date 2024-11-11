@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-//This entity is for the projects created within each course
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,24 +18,21 @@ public class ProjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long project_Id;
+    private Long projectId;
 
     @Column(nullable = false, unique = true)
     private String projectName;
 
     private String description;
 
-    //Establish Relationships
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private CourseEntity courseEntity;
+    private CourseEntity course;
 
     @ManyToOne
     @JoinColumn(name = "created_by")
-    private UserEntity instructor;
+    private UserEntity createdBy;
 
-    //View Instruction Documents Use Case
     @OneToMany(mappedBy = "projectEntity")
     private List<InstructionDocumentEntity> instructionDocs;
-
 }
