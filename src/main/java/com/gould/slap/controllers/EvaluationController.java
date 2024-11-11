@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/evaluations")
 public class EvaluationController {
 
     private final EvaluationService evaluationService;
@@ -19,24 +18,24 @@ public class EvaluationController {
         this.evaluationService = evaluationService;
     }
 
-    @PostMapping
+    @PostMapping(path = "/evaluations")
     public ResponseEntity<EvaluationEntity> createEvaluation(@RequestBody EvaluationEntity evaluationEntity) {
         EvaluationEntity createdEvaluation = evaluationService.createEvaluation(evaluationEntity);
         return new ResponseEntity<>(createdEvaluation, HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping(path = "/evaluations")
     public List<EvaluationEntity> getAllEvaluations() {
         return evaluationService.findAllEvaluations();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/evaluations/{id}")
     public ResponseEntity<EvaluationEntity> getEvaluationById(@PathVariable("id") Long id) {
         Optional<EvaluationEntity> evaluation = evaluationService.findEvaluationById(id);
         return evaluation.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/evaluations/{id}")
     public ResponseEntity<EvaluationEntity> updateEvaluation(@PathVariable("id") Long id, @RequestBody EvaluationEntity evaluationEntity) {
         if (!evaluationService.existsById(id)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -46,7 +45,7 @@ public class EvaluationController {
         return new ResponseEntity<>(updatedEvaluation, HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/evaluations/{id}")
     public ResponseEntity<EvaluationEntity> partialUpdateEvaluation(@PathVariable("id") Long id, @RequestBody EvaluationEntity evaluationEntity) {
         if (!evaluationService.existsById(id)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -55,7 +54,7 @@ public class EvaluationController {
         return new ResponseEntity<>(updatedEvaluation, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/evaluations/{id}")
     public ResponseEntity<Void> deleteEvaluation(@PathVariable("id") Long id) {
         if (!evaluationService.existsById(id)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
