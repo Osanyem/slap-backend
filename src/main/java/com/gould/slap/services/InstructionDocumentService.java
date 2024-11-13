@@ -30,12 +30,12 @@ public class InstructionDocumentService {
     }
 
     //Find All Documents
-    public List<InstructionDocumentEntity> findall(){
+    public List<InstructionDocumentEntity> findAll(){
         return StreamSupport.stream(instructionDocumentRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
     //Find All Documents for a Specific Project
-    public List<InstructionDocumentEntity> findallbyCourse(ProjectEntity project){
+    public List<InstructionDocumentEntity> findAllByCourse(ProjectEntity project){
         return StreamSupport.stream(instructionDocumentRepository.findAll().spliterator(), false)
         .filter(instruction_documents -> project.equals(instruction_documents.getProjectEntity()))
         .toList();

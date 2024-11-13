@@ -29,8 +29,8 @@ public class ProjectController {
 
     //Get all Projects From a specific course
     @GetMapping(path = "/projects/course/{course}")
-    public List<ProjectEntity> listSenderProjects(@PathVariable("course") CourseEntity course) {
-        return projectService.findallbyCourse(course);
+    public List<ProjectEntity> listCourseProjects(@PathVariable("course") CourseEntity course) {
+        return projectService.findAllByCourse(course);
     }
 
     //Get a Project by id

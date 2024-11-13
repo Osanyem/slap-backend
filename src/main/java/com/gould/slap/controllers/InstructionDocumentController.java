@@ -32,7 +32,7 @@ public class InstructionDocumentController {
     //Get all Instruction Documents for a specific Project
     @GetMapping(path = "/instruction_documents/projectEntity/{projectEntity}")
     public List<InstructionDocumentEntity> getProjectDocuments(@PathVariable("projectEntity") ProjectEntity projectEntity) {
-        return instructionDocumentService.findallbyCourse(projectEntity);
+        return instructionDocumentService.findAllByCourse(projectEntity);
     }
 
     //Get an Instruction Document by ID

@@ -29,19 +29,19 @@ public class MessageService {
     }
 
     //Find All Messages
-    public List<MessageEntity> findall(){
+    public List<MessageEntity> findAll(){
         return StreamSupport.stream(messageRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
     //Find All Messages by Sender (Could maybe use findAllByID??)
-    public List<MessageEntity> findallbySender(UserEntity sender){
+    public List<MessageEntity> findAllBySender(UserEntity sender){
         return StreamSupport.stream(messageRepository.findAll().spliterator(), false)
         .filter(message -> sender.equals(message.getSender()))
         .toList();
     }
 
     //Find All Messages by Reciever (Could maybe use findAllByID??)
-    public List<MessageEntity> findallbyReciever(UserEntity reciever){
+    public List<MessageEntity> findAllByReciever(UserEntity reciever){
         return StreamSupport.stream(messageRepository.findAll().spliterator(), false)
         .filter(message -> reciever.equals(message.getReceiver()))
         .toList();

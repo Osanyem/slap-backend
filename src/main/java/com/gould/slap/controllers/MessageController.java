@@ -30,13 +30,13 @@ public class MessageController {
     //Get all messages From a specific sender
     @GetMapping(path = "/messages/sender/{sender}")
     public List<MessageEntity> listSenderMessages(@PathVariable("sender") UserEntity sender) {
-        return messageService.findallbySender(sender);
+        return messageService.findAllBySender(sender);
     }
     
     //Get all messages From a specific sender
     @GetMapping(path = "/messages/reciever/{reciever}")
     public List<MessageEntity> listRecieverMessages(@PathVariable("reciever") UserEntity reciever) {
-        return messageService.findallbySender(reciever);
+        return messageService.findAllBySender(reciever);
     }
 
     //Get a message by id

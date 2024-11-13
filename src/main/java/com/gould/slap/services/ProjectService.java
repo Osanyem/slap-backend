@@ -30,12 +30,12 @@ public class ProjectService {
     }
 
     //Find All Project
-    public List<ProjectEntity> findall(){
+    public List<ProjectEntity> findAll(){
         return StreamSupport.stream(projectRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
     //Find All Projects by Course
-    public List<ProjectEntity> findallbyCourse(CourseEntity course){
+    public List<ProjectEntity> findAllByCourse(CourseEntity course){
         return StreamSupport.stream(projectRepository.findAll().spliterator(), false)
         .filter(project -> course.equals(project.getCourse()))
         .toList();
