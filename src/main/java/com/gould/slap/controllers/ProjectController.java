@@ -27,13 +27,13 @@ public class ProjectController {
         return new ResponseEntity<>(createdProject, HttpStatus.CREATED);
     }
 
-    //Get all Projects From a specific course
+    //Get all Projects from a specific course
     @GetMapping(path = "/projects/course/{course}")
     public List<ProjectEntity> listCourseProjects(@PathVariable("course") CourseEntity course) {
         return projectService.findAllByCourse(course);
     }
 
-    //Get a Project by id
+    //Get a Project by ID
     @GetMapping(path = "/projects/{id}")
     public Optional<ProjectEntity> listProjectByID(@PathVariable("id") Long id) {
         return projectService.findOne(id);

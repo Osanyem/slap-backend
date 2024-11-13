@@ -27,19 +27,19 @@ public class MessageController {
         return new ResponseEntity<>(createdMessage, HttpStatus.CREATED);
     }
 
-    //Get all messages From a specific sender
+    //Get all messages from a specific sender
     @GetMapping(path = "/messages/sender/{sender}")
     public List<MessageEntity> listSenderMessages(@PathVariable("sender") UserEntity sender) {
         return messageService.findAllBySender(sender);
     }
     
-    //Get all messages From a specific sender
+    //Get all messages from a specific sender
     @GetMapping(path = "/messages/reciever/{reciever}")
     public List<MessageEntity> listRecieverMessages(@PathVariable("reciever") UserEntity reciever) {
         return messageService.findAllBySender(reciever);
     }
 
-    //Get a message by id
+    //Get a message by ID
     @GetMapping(path = "/messages/{id}")
     public Optional<MessageEntity> listMessageByID(@PathVariable("id") Long id) {
         return messageService.findOne(id);

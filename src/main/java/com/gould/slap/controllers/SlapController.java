@@ -34,19 +34,19 @@ public class SlapController {
         return new ResponseEntity<>(createdSlap, HttpStatus.CREATED);
     }
 
-    //Get all Slaps From a specific creator
+    //Get all Slaps from a specific creator
     @GetMapping(path = "/slaps/creator/{creator}")
     public List<SlapEntity> listCourseSlaps(@PathVariable("creator") UserEntity creator) {
         return slapService.findAllByCreator(creator);
     }
 
-    //Get all Slaps From a specific course
+    //Get all Slaps from a specific course
     @GetMapping(path = "/slaps/course/{course}")
     public List<SlapEntity> listCourseSlaps(@PathVariable("course") CourseEntity course) {
         return slapService.findAllByCourse(course);
     }
 
-    //Get a Slap by id
+    //Get a Slap by ID
     @GetMapping(path = "/slaps/{id}")
     public Optional<SlapEntity> listSlapByID(@PathVariable("id") Long id) {
         return slapService.findOne(id);
