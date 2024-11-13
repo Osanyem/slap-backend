@@ -34,7 +34,7 @@ public class InstructionDocumentService {
         return StreamSupport.stream(instructionDocumentRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
-    //Find All Documents for a Specific Course
+    //Find All Documents for a Specific Project
     public List<InstructionDocumentEntity> findallbyCourse(ProjectEntity project){
         return StreamSupport.stream(instructionDocumentRepository.findAll().spliterator(), false)
         .filter(instruction_documents -> project.equals(instruction_documents.getProjectEntity()))
